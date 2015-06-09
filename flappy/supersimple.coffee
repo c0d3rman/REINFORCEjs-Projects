@@ -55,7 +55,6 @@ learningInterval = setInterval -> # start the learning loop
 	reward = env.tick action
 	agent.learn reward # the agent improves its Q,policy,model, etc. reward is a float
 	console.log "#{a++}\t| y = #{y} | vy = #{vy} | a = #{if action is 1 then "F" else "-"} | e = #{agent.epsilon} \t | r = #{reward}"
-	agent.epsilon *= 0.9995 # decay epsilon
 , 0
 
 test = (n) ->
@@ -86,4 +85,4 @@ done = ->
 setTimeout ->
 	clearInterval learningInterval
 	done()
-, 1000 * 5
+, 1000 * 60
